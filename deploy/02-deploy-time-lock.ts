@@ -12,12 +12,13 @@ const deployTimeLock: DeployFunction =async (
   const { deployer } = await getNamedAccounts()
   log('Deploying Timelock...')
   
-  const timeLock = deploy('TimeLock', {
+  const timeLock = await deploy('TimeLock', {
     from: deployer,
     args: [MIN_DELAY, [], []],
     log: true,
     // waitConfirmations
   })
+  // log('Deployed Timelock ....!')
 }
 
 export default deployTimeLock;
